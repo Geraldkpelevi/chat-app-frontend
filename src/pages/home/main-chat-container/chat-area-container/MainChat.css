@@ -1,0 +1,6 @@
+.main-chat{
+    display: grid;
+    grid-template-rows: 12% 78% 10%;
+  overflow-y: auto;
+
+}

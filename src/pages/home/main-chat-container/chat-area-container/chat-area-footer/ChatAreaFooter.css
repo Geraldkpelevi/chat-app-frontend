@@ -1,0 +1,33 @@
+.main-chat-footer {
+  box-shadow: 0 0 1px green;
+  font-size: 10px;
+  display: grid;
+  grid-template-columns: 80% 20%;
+}
+.chat-footer-input{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+.chat-footer-input input{
+  width: 90%;
+  height: 100%;
+  border: none;
+  outline: none;
+}
+.chat-footer-icons{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  color: green;
+  font-size: 20px;
+  margin-right: 20px;
+}
+.chat-emoji{
+  position: absolute;
+  top: 85px;
+}

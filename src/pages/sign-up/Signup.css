@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.signupPage {
+  background-image: linear-gradient(
+      40deg,
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 100, 0, 0.8)
+    ),
+    url("https://png.pngtree.com/thumb_back/fw800/background/20230913/pngtree-cell-phone-and-paper-speech-bubbles-next-to-blue-surface-of-image_13274584.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.signup-form {
+  width: 400px;
+  padding: 60px;
+  border-radius: 10px;
+  height: 450px;
+  background-color: white;
+}
+.signup-form h2 {
+  text-align: center;
+  color: darkgreen;
+}
+.signup-form input {
+  padding: 10px;
+  margin: 10px;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  background-color: whitesmoke;
+}
+.signup-form button {
+  padding: 10px;
+  margin: 10px;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  background-color: darkgreen;
+  color: white;
+}
+
+.gender {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  background-color: whitesmoke;
+}

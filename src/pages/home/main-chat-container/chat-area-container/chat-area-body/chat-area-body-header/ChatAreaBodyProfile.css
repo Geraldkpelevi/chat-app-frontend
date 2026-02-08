@@ -1,0 +1,31 @@
+.chatAreaBodyProfile{
+    box-shadow: 0 0 1px gray;
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+.chatProfile-pic img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin-left: 30px;
+}
+.chatProfile-pic{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: green;
+    gap: 15px;
+}
+.ChatProfile-icons-box{
+    color: green;
+    margin-right: 30px;
+    font-size: 30px;
+    gap: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.chatProfile-pic h4{
+    color: green;
+}
+

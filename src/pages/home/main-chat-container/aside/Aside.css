@@ -1,0 +1,6 @@
+.aside {
+  font-size: 10px;
+  display: grid;
+  grid-template-rows: 12% 88%;
+  overflow-y: auto;
+}
