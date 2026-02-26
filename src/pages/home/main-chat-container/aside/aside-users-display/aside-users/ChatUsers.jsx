@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { LoggedInUserDataContext } from "../../../../../../context/loggedInUserData.js";
 import  MessageContext  from "../../../../../../context/messageContext.js";
 import { SelectedUserChatContext } from "../../../../../../context/selectedUserChatContext.js";
+import { OnlineUsersContext } from "../../../../../../context/onlineUsersContext.js"; 
 import "./ChatUsers.css";
 import { getAllChats } from "./ChatUsers.js";
 
@@ -10,18 +11,22 @@ function ChatUsers({ user }) {
     SelectedUserChatContext,
   );
   const { loggedInUserData } = useContext(LoggedInUserDataContext);
-  const { setMasseges } = useContext(MessageContext);
+  const { setMessages } = useContext(MessageContext);
+  const {onlineUsers} = useContext(OnlineUsersContext)
   const isActive = selectedUserChat?._id === user?._id;
+
+  
 
   return (
     <div
       className={`aside-users-profile ${isActive ? "active" : ""}`}
       onClick={() => {
         setSelectedUserChat(user);
-        getAllChats(loggedInUserData._id, user._id, setMasseges);
-      }}
+        getAllChats(loggedInUserData._id, user._id, setMessages);
+      }} 
     >
-      <div>
+      <div className="chat-user-image">
+        <div className="mode" style={{ backgroundColor:onlineUsers.includes(user._id) ? "green" : "red"}}></div>
         <img
           src={
             user?.gender === "male"

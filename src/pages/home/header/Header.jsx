@@ -1,20 +1,13 @@
 import { use } from "react";
+import {useNavigate} from "react-router-dom"
 import { LoggedInUserDataContext } from "../../../context/loggedInUserData";
 import "./Header.css";
 
 function Header({ logout }) {
+  const navigate = useNavigate();
   const { loggedInUserData } = use(LoggedInUserDataContext);
 
-  // const [time, setTime] = useState(new Date());
-
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setTime(new Date());
-  //   }, 1000);
-
-  //   return () => clearInterval(interval); // cleanup
-  // }, []);
-
+  
   return (
     <header className="header">
       <div className="navbar">
@@ -23,26 +16,16 @@ function Header({ logout }) {
           <p>Chat App</p>
         </div>
         <div className="Time-day">
-          {/* <p className="text-xs text-gray-500">
-            {Intl.DateTimeFormat().resolvedOptions().timeZone}
-          </p>
-          <p className="time">
-            {time.toLocaleString("en-US", {
-              weekday: "short",
-              year: "numeric",
-              month: "short",
-              day: "numeric",
-              hour: "2-digit",
-              minute: "2-digit",
-              second: "2-digit",
-            })}
-          </p> */}
+         
         </div>
         <div className="navbar-profile">
           <div className="navbarprofile">
             <h4>{loggedInUserData.username}</h4>
           </div>
           <img
+          onClick={()=>{
+            navigate("/profile")
+          }}
             src={
               loggedInUserData.gender === "male"
                 ? "https://tse2.mm.bing.net/th/id/OIP.bUWRYWs_4J0ZdV1S4dU07gHaEL?rs=1&pid=ImgDetMain&o=7&rm=3"

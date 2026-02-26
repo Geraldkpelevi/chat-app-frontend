@@ -10,20 +10,38 @@ function ChatAreaFooter({ socket }) {
   const newMessageRef = useRef();
   const { loggedInUserData } = useContext(LoggedInUserDataContext);
   const { selectedUserChat } = useContext(SelectedUserChatContext);
-  const { setMasseges } = useContext(messageContext);
+  const { setMessages } = useContext(messageContext);
   const [showChatEmoji, setShowChatEmoji] = useState(false);
 
   useEffect(() => {
     socket.on("received-message", (serverMessage) => {
-      setMasseges((prevMessage) => {
+      setMessages((prevMessage) => {
         return [...prevMessage, serverMessage];
       });
     });
-  }, []);
+  }, [socket, setMessages]);
+  useEffect(() => {
+    socket.on("message-delivered", (data) => {
+      setMessages((prev) =>
+        prev.map((msg) =>
+          msg.createdAt === data.createdAt
+            ? { ...msg, status: "delivered" }
+            : msg,
+        ),
+      );
+    });
+
+    return () => {
+      socket.off("message-delivered");
+    };
+  }, [socket, setMessages]);
+
   const sendMessage = () => {
     const data = {
       userIds: [loggedInUserData._id, selectedUserChat._id],
       message: newMessageRef.current.value,
+      createdAt: new Date().toISOString(),
+      status: "sent",
     };
 
     socket.emit("send-message", data);
@@ -44,12 +62,12 @@ function ChatAreaFooter({ socket }) {
             setShowChatEmoji(!showChatEmoji);
           }}
         ></i>
-        <i className="bi bi-mic-fill"></i>
+        <i className="bi bi-file-earmark-arrow-up-fill"></i>
         <i className="bi bi-send-fill" onClick={sendMessage}></i>
       </div>
       <div className="chat-emoji">
         <EmojiPicker
-        width={800}
+          width={800}
           open={showChatEmoji}
           onEmojiClick={(e) => {
             newMessageRef.current.value += e.emoji;

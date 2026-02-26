@@ -1,0 +1,93 @@
+.Profile {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  background-color: black;
+}
+.profile-image-user-name {
+  width: full;
+  text-align: center;
+  background-color: black;
+}
+.profile-image-user-name h1 {
+  color: green;
+}
+.profile-image-user-name img {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin-top: 50px;
+}
+.profile-image-user-name p {
+  margin-top: 20px;
+  color: green;
+}
+.profile-details {
+  display: grid;
+  grid-template-rows: 20% 60% 20%;
+  /* background-color: red; */
+}
+.profile-details h1 {
+  color: green;
+}
+.hr {
+  margin: 10px;
+  color: green;
+  width: 100%;
+}
+.details-par p {
+  margin: 10px;
+  color: green;
+}
+
+.profile-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px solid green;
+  border-radius: 10px;
+}
+.name-passwd {
+  display: flex;
+  align-items: space-between;
+  justify-content: space-around;
+  gap: 100px;
+}
+.name-passwd div {
+  display: flex;
+  flex-direction: column;
+}
+.name-passwd div input {
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  margin: 10px;
+}
+.name-passwd div label {
+  margin: 10px;
+  color: green;
+}
+
+.button {
+  margin: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: white;
+  color: green;
+  cursor: pointer;
+  font-weight: bold;
+}
+.profile-icons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}

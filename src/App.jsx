@@ -9,6 +9,7 @@ import ForgetPassword from "./pages/forget-password/ForgetPassword.jsx";
 import Home from "./pages/home/Home.jsx";
 import Signin from "./pages/sign-in/Signin.jsx";
 import Signup from "./pages/sign-up/Signup.jsx";
+import Profile from "./pages/profile/Profile.jsx";
 
 function App() {
   const [loggedInUserData, setLoggedInUserData] = useState(null);
@@ -35,6 +36,7 @@ function App() {
               isLogin ? <Home logout={Logout} /> : <Signin login={Login} />
             }
           />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/forgetpassword" element={<ForgetPassword />} />
           <Route path="*" element={<PageNotFound />} />
