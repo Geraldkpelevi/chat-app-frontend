@@ -35,7 +35,7 @@ function ChatAreaFooter({ socket }) {
       socket.off("message-delivered");
     };
   }, [socket, setMessages]);
-
+  const fileInputRef = useRef();
   const sendMessage = () => {
     const data = {
       userIds: [loggedInUserData._id, selectedUserChat._id],
@@ -62,7 +62,17 @@ function ChatAreaFooter({ socket }) {
             setShowChatEmoji(!showChatEmoji);
           }}
         ></i>
-        <i className="bi bi-file-earmark-arrow-up-fill"></i>
+        <i
+          className="bi bi-file-earmark-arrow-up-fill"
+          onClick={() => fileInputRef.current.click()}
+        ></i>{" "}
+        <input
+          type="file"
+          accept="image/*"
+          ref={fileInputRef}
+          style={{ display: "none" }}
+          // onChange={handleSendImage}
+        />
         <i className="bi bi-send-fill" onClick={sendMessage}></i>
       </div>
       <div className="chat-emoji">
